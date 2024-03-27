@@ -4,21 +4,15 @@ import { RouterLink } from 'vue-router';
 import { useSidebarStore } from '@/stores/sidebar';
 import UserDropdown from '@/layouts/auth/partials/UserDropdown.vue';
 import ExtraButton from '@/components/buttons/ExtraButton.vue';
-import TravelLinks from './partials/TravelLinks.vue';
 import { onMounted } from 'vue';
 import { useChatService } from '@/services/chatService';
 import { useChatStore } from '@/stores/chat';
 import { storeToRefs } from 'pinia';
 import ChatLinks from './partials/ChatLinks.vue';
-import { useTravelService } from '@/services/travelService';
-import { useTravelStore } from '@/stores/travel';
 import Settings from './partials/Settings.vue';
 
 const { chats } = storeToRefs(useChatStore());
 const { getChatsRequest } = useChatService();
-
-const { getAllTravelRequest } = useTravelService();
-const { travels } = storeToRefs(useTravelStore());
 
 const sidebarStore = useSidebarStore();
 
@@ -36,15 +30,8 @@ const getAllChats = async () => {
   chats.value = data;
 }
 
-const getAllTravels = async () => {
-  const { data } = await getAllTravelRequest();
-
-  travels.value = data;
-}
-
 onMounted(() => {
   getAllChats();
-  getAllTravels()
 })
 
 </script>
@@ -79,18 +66,7 @@ onMounted(() => {
     <div class="h-full px-3 py-4 overflow-y-auto">  
       <ul class="space-y-2 font-medium">
         <li>
-          <RouterLink to="/home" @click="closeOnSmallScreen" active-class="bg-gray-700" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
-            <span class="w-5 h-5 transition duration-75 text-gray-400 group-hover:text-white">
-              <i class="fa fa-home"></i>
-            </span>
-            <span class="ms-3">Home</span>
-          </RouterLink>
-        </li>
-        <li>
           <ChatLinks :chats="chats" @on-access-link="closeOnSmallScreen" />
-        </li>
-        <li>
-          <TravelLinks :travels="travels" @on-access-link="closeOnSmallScreen" />
         </li>
         <li>
           <Settings @on-access-link="closeOnSmallScreen" />

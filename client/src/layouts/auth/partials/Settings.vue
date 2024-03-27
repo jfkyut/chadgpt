@@ -7,7 +7,6 @@ import ToggleInput from '@/components/inputs/ToggleInput.vue';
 import { useThemeStore } from '@/stores/theme';
 import { storeToRefs } from 'pinia';
 import DeleteAllChat from './DeleteAllChat.vue';
-import DeleteAllTravel from './DeleteAllTravel.vue';
 
 defineProps({ chats: Object })
 const emit = defineEmits(['onAccessLink'])
@@ -43,7 +42,6 @@ watch(isSettingsDropdownShow, (settingsState) => {
     :is-links-show="isSettingsDropdownShow">
 
     <DeleteAllChat />
-    <DeleteAllTravel />
     
     <NavDropdownButton class="flex justify-between">
       <span>Dark mode</span>

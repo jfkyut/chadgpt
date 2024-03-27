@@ -33,11 +33,4 @@ Route::middleware(['auth:sanctum'])
         Route::delete('/chat', [ChatController::class, 'destroyAll']);
 
         Route::post('/message/{chat}', [MessageController::class, 'store']);
-
-        Route::get('/travel', [TravelItineraryController::class, 'index']);
-        Route::post('/travel', [TravelItineraryController::class, 'store']);
-        Route::put('/travel/{travelItinerary}', [TravelItineraryController::class, 'update']);
-        Route::delete('/travel/{travelItinerary}', [TravelItineraryController::class, 'destroy']);
-        Route::delete('/travel', [TravelItineraryController::class, 'destroyAll']);
-        Route::post('/travel/pdf', [TravelItineraryController::class, 'travelPdf']);
     });

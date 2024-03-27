@@ -25,7 +25,7 @@ const form = ref({
 
 const register = async () => {
   isLoading.value = true;
-  (await registerRequest(form.value)) && router.push('/home');
+  (await registerRequest(form.value)) && router.push('/chat');
   isLoading.value = false;
 }
 

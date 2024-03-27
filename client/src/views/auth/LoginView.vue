@@ -31,7 +31,7 @@ const onChangeRemember = (e) => {
 const login = async () => {
   isLoading.value = true;  
 
-  (await loginRequest(form.value)) && router.push('/home')
+  (await loginRequest(form.value)) && router.push('/chat')
   
   isLoading.value = false;
 }
