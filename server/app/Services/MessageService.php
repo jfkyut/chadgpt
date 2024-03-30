@@ -76,7 +76,7 @@ class MessageService
 			}
 		}
     
-    	if (count($previousMessages) >= 5) {
+        if (count($previousMessages) >= 8) {
 			$previousMessages = array_slice($previousMessages, count($previousMessages) - 5);
 		}
 

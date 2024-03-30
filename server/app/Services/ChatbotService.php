@@ -15,7 +15,7 @@ class ChatbotService
         $this->chatbotInitilaMessage = [
             [
                 'role' => 'system',
-                'content' => 'You are ChadGPT, Virtual Tourist Assistant Chatbot. Reply in a json format, make sure to always include whitespaces (\\n). format: ' . Storage::get("chatbot.json"),
+                'content' => 'You are ChadGPT. Reply in a json format, make sure to always include whitespaces (\\n). format: ' . Storage::get("chatbot.json"),
             ]
         ];
     }

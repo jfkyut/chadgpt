@@ -22,20 +22,13 @@ class MessageController extends Controller
     {
         $previousMessages = $this->messageService->getPreviousMessages($chat);
 
-        $allMessages = $this->messageService->initializeAllMessages(
-            $previousMessages, 
-            $request->validated('message')
-        );
+        $allMessages = $this->messageService->initializeAllMessages($previousMessages, $request->validated('message'));
 
         $data = $this->chatbotService->initializeData($allMessages, $this->chatbotService->chatbotInitilaMessage);
 
         $response = $this->chatbotService->generateResponse($data);
 
-        $message = $this->messageService->createMessages(
-            $request->validated('message'),
-            $response->content,
-            $chat
-        );
+        $message = $this->messageService->createMessages($request->validated('message'), $response->content, $chat);
 
         $this->messageService->addMessageToSession($message, $chat);
 

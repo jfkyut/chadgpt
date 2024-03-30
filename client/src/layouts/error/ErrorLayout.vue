@@ -16,7 +16,7 @@ onMounted( async () => {
   <div class="flex justify-center items-center dark:text-gray-400 dark:bg-gray-800 min-h-screen">
     <div class="absolute top-5 left-5">
       <div v-if="profileStore.user">
-        <router-link to="/home">Home</router-link>
+        <router-link to="/chat">Chat</router-link>
       </div>
       <div class="flex gap-4" v-else>
         <router-link to="/login">Login</router-link>
